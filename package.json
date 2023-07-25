@@ -1,0 +1,23 @@
+{
+  "fitbit": {
+    "appUUID": "98d702bf-5dea-4ba3-83de-2374867138e7",
+    "appType": "clockface",
+    "appDisplayName": "DigitalClockTest",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "DigitalClockTest"
+      }
+    },
+    "defaultLanguage": "en-US"
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}

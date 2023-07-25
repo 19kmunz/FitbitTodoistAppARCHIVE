@@ -1,0 +1,86 @@
+<svg class="screen">
+  <defs>
+    <!-- CHECK BOX -->
+    <symbol id="checkBox" >
+      <svg id="positioning" x="30" y="25">
+        <circle id="outerCircle" r="20" fill="fb-extra-dark-gray" />
+        <circle id="circle" r="19" fill="white">
+          <image id="image" href="" width="25" height="25" x="-12" y="-12"/>
+        </circle>
+      </svg>
+    </symbol>
+    
+    <!-- DATE TITLE -->
+    <symbol id="dateTitle" href='#tile-list-item' display="none" height="45">
+      <text id="titleText" x="10" y="35">Today</text>
+      <text id="sideTitleText" x="$+5" y="35">Today</text>
+      <line id="seperatorLine" x1="10" y1="45" x2="100%-10" y2="45" fill="lightgrey" stroke-width="1" />
+    </symbol>
+    
+    <!-- TASK -->
+    <symbol id="task" href='#tile-list-item' display="none" height="60">
+      <svg id="positioning" y="5">
+        <use id="CHECKITEM" href="#checkBox"/>
+        <text id="taskText" x="60" y="38">Study for Test</text>
+        <circle id="projectCircle"/>
+      </svg>
+      <line id="seperatorLine" x1="10" y1="60" x2="100%-10" y2="60" fill="lightgrey" stroke-width="1" />
+    </symbol>
+    
+    <!-- ALL DONE -->
+    <symbol id="allDone">
+      <svg id="positioning" y="5">
+        <use id="CHECKITEM" href="#checkBox" display="none"/>
+        <text id="taskText" x="10" y="38" font-family='System-Light'>All Done!</text>
+        <circle id="projectCircle" display="none"/>
+      </svg>
+      <line id="seperatorLine" x1="10" y1="60" x2="100%-10" y2="60" fill="lightgrey" stroke-width="1" />
+    </symbol>
+  </defs>
+  
+  
+  <use id='my-tile-list' href='#tile-list' y="13%" height="87%">
+    <!-- We need to mark this as a VirtualTileList -->
+    <var id='virtual' value='1' />
+    
+    <!-- Each of our tiles have the 2px 'tile-divider-bottom'.
+      -- In order to properly calculate offsets when scrolling,
+      -- we need to tell the tile list how tall our separator is. -->
+    <var id='separator-height-bottom' value='2'/>
+
+    <!-- The item pools may each only contain a single type of
+      -- tile, and each pool should contain at least enough tiles
+      -- to fit on screen. For smoother scrolling, more are
+      -- recommended.
+      -- In this case, we can fit a maximum of 300/50 = 6 on screen
+      -- so we will keep 10 tiles in each pool. -->
+    <use id='task-pool' href='#tile-list-pool'>
+      <use id='task-pool[1]' href='#task' />
+      <use id='task-pool[2]' href='#task' />
+      <use id='task-pool[3]' href='#task' />
+      <use id='task-pool[4]' href='#task' />
+      <use id='task-pool[5]' href='#task' />
+      <use id='task-pool[6]' href='#task' />
+      <use id='task-pool[7]' href='#task' />
+    </use>
+    
+    <use id='title-pool' href='#tile-list-pool'>
+      <use id='title-pool[0]' href='#dateTitle' />
+      <use id='title-pool[1]' href='#dateTitle' />
+      <use id='title-pool[2]' href='#dateTitle' />
+      <use id='title-pool[3]' href='#dateTitle' />
+      <use id='title-pool[4]' href='#dateTitle' />
+      <use id='title-pool[5]' href='#dateTitle' />
+      <use id='title-pool[6]' href='#dateTitle' />
+      <use id='title-pool[7]' href='#dateTitle' />
+    </use>
+
+  </use> 
+   
+  <svg class="container" id="header">
+    <rect id="headerRect"/>
+    <text id="date" x="5">Today's Date</text>
+    <text id="myClock" x="100%-38-5" text-anchor="end">00:00</text>
+    <image href="whiteTodoLogo.png" width="38" height="38" x="100% - 38"/>
+  </svg>
+</svg>
